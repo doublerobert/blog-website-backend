@@ -1,0 +1,5 @@
+devDependences
+  ts-node typescirpt nodemon
+
+dependences
+  express express-session cors bcrypt mongoose morgan envalid dotenv http-errors
