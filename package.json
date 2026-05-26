@@ -6,6 +6,8 @@
   "scripts": {
     "start": "node dest/server.js",
     "dev": "nodemon src/server.ts",
+    "migrate": "ts-node src/database/migration.ts",
+    "build": "tsc src/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -14,6 +16,7 @@
   "type": "module",
   "dependencies": {
     "bcrypt": "^6.0.0",
+    "connect-redis": "^9.0.0",
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "envalid": "^8.1.1",
@@ -21,13 +24,16 @@
     "express-session": "^1.19.0",
     "http-errors": "^2.0.1",
     "morgan": "^1.10.1",
-    "postgres": "^3.4.9"
+    "postgres": "^3.4.9",
+    "redis": "^5.12.1"
   },
   "devDependencies": {
     "@types/express": "^5.0.6",
+    "@types/morgan": "^1.9.10",
     "@types/node": "^25.9.1",
     "nodemon": "^3.1.14",
     "ts-node": "^10.9.2",
+    "tsx": "^4.22.3",
     "typescript": "^6.0.3"
   }
 }

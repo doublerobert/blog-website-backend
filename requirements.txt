@@ -2,4 +2,4 @@ devDependences
   ts-node typescirpt nodemon
 
 dependences
-  express express-session cors bcrypt mongoose morgan envalid dotenv http-errors
+  express express-session cors bcrypt morgan envalid dotenv http-errors redis connect-redis
