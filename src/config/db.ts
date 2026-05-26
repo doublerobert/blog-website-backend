@@ -7,6 +7,11 @@ const DATABASE_URL = `postgresql://${PGUSER}:${PGPASSWORD}@${PGHOST}/${PGDATABAS
 
 const sql = postgres(DATABASE_URL, {
   ssl: "require",
+  onnotice: (notice) => {
+    if (notice.code && notice.code !== "42P07") {
+      console.log(notice);
+    }
+  },
 });
 
 export default sql;
