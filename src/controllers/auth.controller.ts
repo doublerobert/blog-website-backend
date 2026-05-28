@@ -2,14 +2,9 @@ import type { RequestHandler } from "express";
 import createHttpError from "http-errors";
 import sql from "../config/db.ts";
 import bcrypt from "bcrypt";
+import validateUserCredencials from "../utils/validators.ts";
 
-export const getAuthenticatedUser: RequestHandler = async (
-  req,
-  res,
-  next,
-) => {};
-
-interface SignUpBody {
+export interface SignUpBody {
   username?: string;
   email?: string;
   password?: string;
@@ -21,14 +16,20 @@ export const signUp: RequestHandler<
   SignUpBody,
   unknown
 > = async (req, res, next) => {
-  const username = req.body.username;
-  const email = req.body.email;
-  const password = req.body.password;
+  // const username = req.body.username;
+  // const email = req.body.email;
+  // const password = req.body.password;
 
   try {
-    if (!username || !email || !password) {
-      throw createHttpError(400, "Missing parameters");
+    // if (!username || !email || !password) {
+    //   throw createHttpError(400, "Missing parameters");
+    // }
+    const validatedUser = validateUserCredencials(req.body);
+
+    if (!validatedUser.success) {
+      throw createHttpError(400, "Invalid credencials", validatedUser.errors);
     }
+    const { username, email, password } = validatedUser.data;
 
     const existingUser = await sql`
       SELECT username, email 
@@ -67,3 +68,4 @@ export const signUp: RequestHandler<
 
 export const login: RequestHandler = async (req, res, next) => {};
 export const logout: RequestHandler = async (req, res, next) => {};
+export const refresh: RequestHandler = async (req, res, next) => {};
