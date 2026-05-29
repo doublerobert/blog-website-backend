@@ -9,6 +9,8 @@ const env = cleanEnv(process.env, {
   }),
 
   SESSION_SECRET: str(),
+  JWT_SECRET: str(),
+  JWT_REFRESH_SECRET: str(),
 
   NODE_ENV: str({
     choices: ["development", "production", "test"],
@@ -19,7 +21,9 @@ const env = cleanEnv(process.env, {
   PGDATABASE: str(),
   PGUSER: str(),
   PGPASSWORD: str(),
-  PGSSLMODE: str(),
+  PGSSLMODE: str({
+    choices: ["require", "allow", "prefer", "verify-full"],
+  }),
 });
 
 export default env;

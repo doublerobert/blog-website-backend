@@ -1,7 +1,12 @@
 import type { Request, Response, NextFunction } from "express";
 import { isHttpError } from "http-errors";
 
-export const errorHandler = (error: unknown, req: Request, res: Response, next: NextFunction) => {
+export const errorHandler = (
+  error: unknown,
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) => {
   let errorMessage = "Internal server error";
   let statusCode = 500;
   let errors: unknown[] = [];
@@ -21,4 +26,4 @@ export const errorHandler = (error: unknown, req: Request, res: Response, next: 
   res
     .status(statusCode)
     .json({ success: false, message: errorMessage, errors });
-}
+};

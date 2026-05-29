@@ -1,10 +1,39 @@
+### Signup
 # @name signup
 
-POST http://localhost:5000/api/users/ HTTP/1.1
+POST http://localhost:5000/api/v1/auth/signup HTTP/1.1
 Accept: application/json
 Content-Type: application/json
+
+# {
+#   "username": "robert",
+#   "email": "robert@gmail.com",
+#   "password": "doublerobert"
+# }
 {
-  "username": "robert",
+  "username": "bob",
   "email": "robert@gmail.com",
   "password": "doublerobert"
 }
+
+### Login
+# @name login
+POST http://localhost:5000/api/v1/auth/login HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+
+{
+  "username": "robert",
+  "password": "doublerobert"
+}
+
+# {
+#   "username": "bob",
+#   "password": "doublerobert"
+# }
+
+### Test
+# @name test
+GET http://localhost:5000/api/v1/ HTTP/1.1
+Accept: application/json
+

@@ -9,6 +9,7 @@
     // See also https://aka.ms/tsconfig/module
     "module": "nodenext",
     "target": "esnext",
+    // "typeRoots": ["./@types"],
     // "types": [],
     // For nodejs:
     "lib": ["esnext"],
@@ -43,5 +44,8 @@
     "noEmit": true,
     "allowImportingTsExtensions": true
   },
-    "include": ["src"]
+  "include": ["src"],
+  "ts-node": {
+    "files": true
+  }
 }
