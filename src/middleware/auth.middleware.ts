@@ -25,7 +25,7 @@ export const authorization = (
   const token = authHeader.split(" ")[1];
 
   if (!token) {
-    return next(createHttpError(401, "Unauthorized"))
+    return next(createHttpError(401, "Unauthorized"));
   }
 
   try {
@@ -34,6 +34,7 @@ export const authorization = (
     req.user = payload;
     next();
   } catch (error) {
-    next(createHttpError(401, "Invalid or expired token", { errors: [error] }));
+    // next(createHttpError(401, "Invalid or expired token", { errors: [error] }));
+    next(createHttpError(401, "Invalid or expired token"));
   }
 };

@@ -168,7 +168,8 @@ export const refresh: RequestHandler = async (req, res, next) => {
 
     return res.status(200).json({
       success: true,
-      accessToken: newAccessToken,
+      message: "Refresh access token successful",
+      data: { accessToken: newAccessToken },
     });
   } catch (error) {
     next(error);

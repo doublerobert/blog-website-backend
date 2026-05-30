@@ -1,6 +1,5 @@
 ### Signup
 # @name signup
-
 POST http://localhost:5000/api/v1/auth/signup HTTP/1.1
 Accept: application/json
 Content-Type: application/json
@@ -31,6 +30,20 @@ Content-Type: application/json
 #   "username": "bob",
 #   "password": "doublerobert"
 # }
+
+### User profile
+# @name user-profile
+GET http://localhost:5000/api/v1/users/profile HTTP/1.1
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTc4MDE0MTk5MSwiZXhwIjoxNzgwMTQyNTkxfQ.DN5BmtI9C0iSNgHftkIZL5vL6x8AlQ__yYukwfF7C78
+
+
+### Refresh token
+# @name refresh-token
+GET http://localhost:5000/api/v1/auth/refresh HTTP/1.1
+Accept: application/json
+Cookie: sid=s%3APVxrd9tJHnVUQq20izSrm26oww5zMJuV.m7BVRVZMgXCcEms%2F1ps4uxcZRVxCtax0nmb74e295d8
+
 
 ### Test
 # @name test
